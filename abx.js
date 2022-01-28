@@ -70,7 +70,7 @@ function start_experiment() {
     */
 
     file_list = makeFileList(method_list_path);
-    outfile = "z_ABX" + name + "_set" + set_num + ".csv";
+    outfile = "inst_simi_" + name + "_set" + set_num + ".csv";
     scores = (new Array(file_list.length)).fill(0);
     eval = document.getElementsByName("eval");
     init();
@@ -114,22 +114,24 @@ function makeFileList(method_list_path) {
             'pairs' consists of n_P_2 triplets, where
             'n' is num of methods you want to compare.
         */
-        pairs = [
-            [method[0][i], method[5][i], method[10][i]],
-            [method[1][i], method[6][i], method[11][i]],
-            [method[2][i], method[7][i], method[12][i]],
-            [method[3][i], method[8][i], method[13][i]],
-            [method[4][i], method[9][i], method[14][i]],
-        ]
-
-
-        pairs = [
-            [method[0][i], method[10][i], method[5][i]],
-            [method[1][i], method[11][i], method[6][i]],
-            [method[2][i], method[12][i], method[7][i]],
-            [method[3][i], method[13][i], method[8][i]],
-            [method[4][i], method[14][i], method[9][i]],
-        ]
+        if (i % 2 == 0) {
+            pairs = [
+                [method[0][i], method[5][i], method[10][i]],
+                [method[1][i], method[6][i], method[11][i]],
+                [method[2][i], method[7][i], method[12][i]],
+                [method[3][i], method[8][i], method[13][i]],
+                [method[4][i], method[9][i], method[14][i]],
+            ]
+        }
+        else {
+            pairs = [
+                [method[0][i], method[10][i], method[5][i]],
+                [method[1][i], method[11][i], method[6][i]],
+                [method[2][i], method[12][i], method[7][i]],
+                [method[3][i], method[13][i], method[8][i]],
+                [method[4][i], method[14][i], method[9][i]],
+            ]
+        }
 
 
         /*
