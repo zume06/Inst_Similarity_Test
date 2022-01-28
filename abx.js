@@ -105,7 +105,7 @@ function makeFileList(method_list_path) {
     }
 
     var files = Array();
-    for (var i = 0; i < method[0].length; i++) {
+    for (var i = 0; i <= method[0].length; i++) {
         // TODO: automate here
         /*
             you have to customize this part
