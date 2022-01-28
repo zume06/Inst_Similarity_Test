@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>ABX Test</title>
+</head>
+
+<body>
+
+    <!-- 注意書きなど -->
+    <div style="border:1px solid #000000; padding: 10px; border-radius: 0px; background: ##ffffff;">
+        <p>
+        <h1>ABX Test</h1>
+
+        Thank you for your cooperation in my experiment.</br>
+        This experiment is ABX test.</br>
+        I will explain the experimental procedure.
+
+        <h2>Experimental Procedure</h2>
+        <ol>
+            <li>Enter your name and select an instrument below it.</li>
+            <li>Press "Start Experiment" button.</li>
+            <li>First, listen to the instrument sound (or music) at the top (let's call it Sound X).<br>
+                Next, listen to the two sounds (or music) below SoundX (Sound A,B)and choose the one that you think is
+                closer to
+                Sound X.<br>
+            </li>
+            <li>Press "next" button and start next evaluation.</li>
+            <li>When you finish this experiment, press "finish" button and download the result.<br>
+                Send it to slack or the following email address.</li>
+            <li>Email address: hashizume.yuuka@g.sp.m.is.nagoya-u.ac.jp</font>
+            </li>
+        </ol>
+
+        <h2>Notes</h2>
+        <ul>
+            <li>This experiment takes about 30 minutes for each instrument.</li>
+            <li>Please do not update the page during this experiment.</li>
+            <li>You may not be able to download the results on your phone, so please use your PC.</li>
+            <li>Please use headphones for this experiment.</li>
+        </ul>
+
+        <h2>実験手順</h2>
+        <ol>
+            <li>名前を入力してセット番号を選んで下さい。<br>
+            <li>"Start Experiment"を押して下さい。</li>
+            <li>初めに一番上にある楽器音または楽曲を聴いて下さい。これをSound Xとします。<br>
+                次に下２つの楽器音または楽曲(Sound A,Bとする)を聴き、Sound Xに近いと思った方を選んで下さい。<br>
+            <li>選択を終えたら"next"ボタンを押し、次の実験に進んで下さい。</li>
+            <li>評価実験を全て終えたら"finish"ボタンを押して結果をダウンロードして下さい。<br>
+                結果はSlackか下記のメールアドレスに送信して下さい。</li>
+            <li>Emailアドレス: hashizume.yuuka@g.sp.m.is.nagoya-u.ac.jp</font>
+            </li>
+        </ol>
+
+        <h2>注意</h2>
+        <ul>
+            <li>この実験は凡そ15分ほど要します</li>
+            <li>実験中はページの再読み込みは行わないで下さい。</li>
+            <li>スマートフォンでは結果をダウンロードできない場合があるためPCを使用して下さい。</li>
+            <li>ヘッドホンやイヤホンを着用した状態で行って下さい。</li>
+        </ul>
+        </p>
+    </div>
+
+    <script type="text/javascript" src="abx.js"></script>
+
+    <div id="Display1">
+        <p> Your name: <br>
+            <input type="text" id="name" value="">
+        </p>
+        <p> Setlist number: <br>
+            <label><input type="radio" name="set" id="number" value="1">set1</label><br>
+        <p>
+            <button id="next1" onclick="start_experiment()">next</button>
+        </p>
+    </div>
+
+
+    <div id="Display2" style="display:none;">
+        <!-- 注意書きなど <body onload="init()"> -->
+        <p id="page"></p>
+        <p id="audio_x"></p>
+        <p id="audio_a"></p>
+        <p id="audio_b"></p>
+        <p>
+            <label><input type="radio" name="eval" onclick="evaluation()">A is closer to X</label><br>
+            <label><input type="radio" name="eval" onclick="evaluation()">B is closer to X</label><br>
+        </p>
+
+        <p>
+            <button id="prev" onclick="prev()">prev</button>
+            <button id="next2" onclick="next()">next</button>
+            <button id="finish" onclick="finish()">finish</button>
+        </p>
+
+
+</body>
+
+</html>
