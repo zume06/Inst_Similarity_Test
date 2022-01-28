@@ -138,7 +138,7 @@ function makeFileList(method_list_path) {
             end
         */
 
-        for (var j = 0; j <= pairs.length; j++) {
+        for (var j = 0; j < pairs.length; j++) {
             files.push(pairs[j]);
         }
     }
