@@ -224,55 +224,71 @@ function evaluation() {
 }
 
 function exportCSV() {
-    var csvData = "";
     for (var i = 0; i < file_list.length; i++) {
-        csvData += "" + file_list[i][1] + ","
-            + file_list[i][2] + ","
-            + scores[i] + "\r\n";
+        if (scores[i] == 1) {
+            ans[i] = "A+"
+        }
+        else if (scores[i] == 2) {
+            ans[i] = "A-"
+        }
+        else if (scores[i] == 3) {
+            ans[i] = "B+"
+        }
+        else if (scores[i] == 4) {
+            ans[i] = "B-"
+        }
+
+        var csvData = "";
+        for (var i = 0; i < file_list.length; i++) {
+            csvData += "" + file_list[i][1] + ","
+                + file_list[i][2] + ","
+                + scores[i] + ","
+                + ans[i] + "\r\n";
+        }
+
+        const link = document.createElement("a");
+        document.body.appendChild(link);
+        link.style = "display:none";
+        const blob = new Blob([csvData], { type: "octet/stream" });
+        const url = window.URL.createObjectURL(blob);
+        link.href = url;
+        link.download = outfile;
+        link.click();
+        window.URL.revokeObjectURL(url);
+        link.parentNode.removeChild(link);
     }
 
-    const link = document.createElement("a");
-    document.body.appendChild(link);
-    link.style = "display:none";
-    const blob = new Blob([csvData], { type: "octet/stream" });
-    const url = window.URL.createObjectURL(blob);
-    link.href = url;
-    link.download = outfile;
-    link.click();
-    window.URL.revokeObjectURL(url);
-    link.parentNode.removeChild(link);
-}
+    function next() {
+        n++;
+        setAudio();
+        evalCheck();
+        setButton();
+    }
 
-function next() {
-    n++;
-    setAudio();
-    evalCheck();
-    setButton();
-}
+    function prev() {
+        n--;
+        setAudio();
+        evalCheck();
+        setButton();
+    }
 
-function prev() {
-    n--;
-    setAudio();
-    evalCheck();
-    setButton();
-}
-
-function finish() {
-    exportCSV();
-}
+    function finish() {
+        exportCSV();
+    }
 
 
-// directory name
-const wav_dir = "wav/";
+    // directory name
+    const wav_dir = "wav/";
 
-// invalid enter key
-document.onkeypress = invalid_enter();
+    // invalid enter key
+    document.onkeypress = invalid_enter();
 
-// global variables
-var outfile;
-var file_list;
-var scores;
+    // global variables
+    var outfile;
+    var file_list;
+    var scores;
+    var ans;
 
-// since loadText() doesn't work in local
-var n = 0;
-var eval = document.getElementsByName("eval");
+    // since loadText() doesn't work in local
+    var n = 0;
+    var eval = document.getElementsByName("eval");
