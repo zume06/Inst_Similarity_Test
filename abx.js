@@ -224,6 +224,7 @@ function evaluation() {
 }
 
 function exportCSV() {
+    var ans = [];
     for (var i = 0; i < file_list.length; i++) {
         if (scores[i] == 1) {
             ans[i] = "A+"
@@ -289,7 +290,6 @@ document.onkeypress = invalid_enter();
 var outfile;
 var file_list;
 var scores;
-var ans;
 
 // since loadText() doesn't work in local
 var n = 0;
