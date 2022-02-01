@@ -1,4 +1,4 @@
-# ABXTest
+# Inst Similarity Test
 
 ## Simple explanation of this opensource
 
