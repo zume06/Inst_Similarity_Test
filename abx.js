@@ -239,6 +239,7 @@ function exportCSV() {
         }
 
         var csvData = "";
+        csvData += "" + "A" + "," + "B" + "," + "score" + "," + "ans" + "\r\n";
         for (var i = 0; i < file_list.length; i++) {
             csvData += "" + file_list[i][1] + ","
                 + file_list[i][2] + ","
