@@ -1,3 +1,5 @@
+//Arrayのプロトタイプにshuffle()メソッドを追加
+//シャッフルされた配列を返す
 Array.prototype.shuffle = function () {
     var i = this.length;
     while (i) {
@@ -10,6 +12,7 @@ Array.prototype.shuffle = function () {
 }
 
 // invalid enter key
+//フォーム送信を防止
 function invalid_enter() {
     if (window.event.keyCode == 13) {
         return false;
@@ -47,6 +50,7 @@ function start_experiment() {
     */
     var method_list_path = [];
     // the first one is the reference method
+    //data pathのリストのpathを格納
     method_list_path.push(wav_dir + "set" + set_num + "/mix_anchors.list");
     method_list_path.push(wav_dir + "set" + set_num + "/drums_anchors.list");
     method_list_path.push(wav_dir + "set" + set_num + "/bass_anchors.list");
@@ -54,11 +58,11 @@ function start_experiment() {
     method_list_path.push(wav_dir + "set" + set_num + "/guitar_anchors.list");
     // the following ones are methods you want to compare
     // positive
-    method_list_path.push(wav_dir + "set" + set_num + "/mix.list");
-    method_list_path.push(wav_dir + "set" + set_num + "/drums.list");
-    method_list_path.push(wav_dir + "set" + set_num + "/bass.list");
-    method_list_path.push(wav_dir + "set" + set_num + "/piano.list");
-    method_list_path.push(wav_dir + "set" + set_num + "/guitar.list");
+    method_list_path.push(wav_dir + "set" + set_num + "/mix_positive.list");
+    method_list_path.push(wav_dir + "set" + set_num + "/drums_positive.list");
+    method_list_path.push(wav_dir + "set" + set_num + "/bass_positive.list");
+    method_list_path.push(wav_dir + "set" + set_num + "/piano_positive.list");
+    method_list_path.push(wav_dir + "set" + set_num + "/guitar_positive.list");
     //negative
     method_list_path.push(wav_dir + "set" + set_num + "/mix_negatives.list");
     method_list_path.push(wav_dir + "set" + set_num + "/drums_negatives.list");
@@ -84,6 +88,7 @@ function Display() {
 }
 
 // load text file
+//ファイル名受け取り->中身を読み込んで改行文字で分割=>popで末尾消して配列に格納して返す
 function loadText(filename) {
     var xhr = new XMLHttpRequest();
     xhr.open("GET", filename, false);
@@ -95,6 +100,7 @@ function loadText(filename) {
 }
 
 // make file list
+//methodに全wavファイル名を格納->pairsにそれらをトリプレットにして入れ直す
 function makeFileList(method_list_path) {
     // prepare file list of all methods
     var method = Array();
@@ -225,28 +231,34 @@ function evaluation() {
 
 function exportCSV() {
     var ans = [];
+    var ans_AB = [];
     for (var i = 0; i < file_list.length; i++) {
         if (scores[i] == 1) {
             ans[i] = "A+"
+            ans_AB[i] = "A"
         }
         else if (scores[i] == 2) {
             ans[i] = "A-"
+            ans_AB[i] = "A"
         }
         else if (scores[i] == 3) {
             ans[i] = "B+"
+            ans_AB[i] = "B"
         }
         else if (scores[i] == 4) {
             ans[i] = "B-"
+            ans_AB[i] = "B"
         }
     }
 
     var csvData = "";
-    csvData += "" + "A" + "," + "B" + "," + "score" + "," + "ans" + "\r\n";
+    csvData += "" + "anchor" + "A" + "," + "B" + "," + "score" + "," + "ans" + "\r\n";
     for (var i = 0; i < file_list.length; i++) {
-        csvData += "" + file_list[i][1] + ","
+        csvData += "" + file_list[i][0] + "," + file_list[i][1] + ","
             + file_list[i][2] + ","
             + scores[i] + ","
-            + ans[i] + "\r\n";
+            + ans[i] + ","
+            + ans_AB[i] + "\r\n";
     }
 
     const link = document.createElement("a");
