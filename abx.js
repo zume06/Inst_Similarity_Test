@@ -58,11 +58,11 @@ function start_experiment() {
     method_list_path.push(wav_dir + "set" + set_num + "/guitar_anchors.list");
     // the following ones are methods you want to compare
     // positive
-    method_list_path.push(wav_dir + "set" + set_num + "/mix_positive.list");
-    method_list_path.push(wav_dir + "set" + set_num + "/drums_positive.list");
-    method_list_path.push(wav_dir + "set" + set_num + "/bass_positive.list");
-    method_list_path.push(wav_dir + "set" + set_num + "/piano_positive.list");
-    method_list_path.push(wav_dir + "set" + set_num + "/guitar_positive.list");
+    method_list_path.push(wav_dir + "set" + set_num + "/mix_positives.list");
+    method_list_path.push(wav_dir + "set" + set_num + "/drums_positives.list");
+    method_list_path.push(wav_dir + "set" + set_num + "/bass_positives.list");
+    method_list_path.push(wav_dir + "set" + set_num + "/piano_positives.list");
+    method_list_path.push(wav_dir + "set" + set_num + "/guitar_positives.list");
     //negative
     method_list_path.push(wav_dir + "set" + set_num + "/mix_negatives.list");
     method_list_path.push(wav_dir + "set" + set_num + "/drums_negatives.list");
