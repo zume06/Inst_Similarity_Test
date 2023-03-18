@@ -252,7 +252,7 @@ function exportCSV() {
     }
 
     var csvData = "";
-    csvData += "" + "anchor" + "A" + "," + "B" + "," + "score" + "," + "ans" + "\r\n";
+    csvData += "" + "anchor" + "," + "A" + "," + "B" + "," + "score" + "," + "ans" + "," + "ABans" + "\r\n";
     for (var i = 0; i < file_list.length; i++) {
         csvData += "" + file_list[i][0] + "," + file_list[i][1] + ","
             + file_list[i][2] + ","
