@@ -56,6 +56,7 @@ function start_experiment() {
     method_list_path.push(wav_dir + "set" + set_num + "/bass_anchors.list");
     method_list_path.push(wav_dir + "set" + set_num + "/piano_anchors.list");
     method_list_path.push(wav_dir + "set" + set_num + "/guitar_anchors.list");
+    method_list_path.push(wav_dir + "set" + set_num + "/residuals_anchors.list");
     // the following ones are methods you want to compare
     // positive
     method_list_path.push(wav_dir + "set" + set_num + "/mix_positives.list");
@@ -63,12 +64,14 @@ function start_experiment() {
     method_list_path.push(wav_dir + "set" + set_num + "/bass_positives.list");
     method_list_path.push(wav_dir + "set" + set_num + "/piano_positives.list");
     method_list_path.push(wav_dir + "set" + set_num + "/guitar_positives.list");
+    method_list_path.push(wav_dir + "set" + set_num + "/residuals_positives.list");
     //negative
     method_list_path.push(wav_dir + "set" + set_num + "/mix_negatives.list");
     method_list_path.push(wav_dir + "set" + set_num + "/drums_negatives.list");
     method_list_path.push(wav_dir + "set" + set_num + "/bass_negatives.list");
     method_list_path.push(wav_dir + "set" + set_num + "/piano_negatives.list");
     method_list_path.push(wav_dir + "set" + set_num + "/guitar_negatives.list");
+    method_list_path.push(wav_dir + "set" + set_num + "/residuals_negatives.list");
     /*
         end
     */
@@ -122,20 +125,22 @@ function makeFileList(method_list_path) {
         */
         if (i % 2 == 0) {
             pairs = [
-                [method[0][i], method[5][i], method[10][i]],
-                [method[1][i], method[6][i], method[11][i]],
-                [method[2][i], method[7][i], method[12][i]],
-                [method[3][i], method[8][i], method[13][i]],
-                [method[4][i], method[9][i], method[14][i]],
+                [method[0][i], method[6][i], method[12][i]],
+                [method[1][i], method[7][i], method[13][i]],
+                [method[2][i], method[8][i], method[14][i]],
+                [method[3][i], method[9][i], method[15][i]],
+                [method[4][i], method[10][i], method[16][i]],
+                [method[5][i], method[11][i], method[17][i]],
             ]
         }
         else {
             pairs = [
-                [method[0][i], method[10][i], method[5][i]],
-                [method[1][i], method[11][i], method[6][i]],
-                [method[2][i], method[12][i], method[7][i]],
-                [method[3][i], method[13][i], method[8][i]],
-                [method[4][i], method[14][i], method[9][i]],
+                [method[0][i], method[12][i], method[6][i]],
+                [method[1][i], method[13][i], method[7][i]],
+                [method[2][i], method[14][i], method[8][i]],
+                [method[3][i], method[15][i], method[9][i]],
+                [method[4][i], method[16][i], method[10][i]],
+                [method[5][i], method[17][i], method[11][i]],
             ]
         }
 
