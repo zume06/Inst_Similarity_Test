@@ -129,7 +129,7 @@ function makeFileList(method_list_path) {
             pairs = [
                 [method[0][i], method[8][i], method[4][i]],
                 [method[1][i], method[9][i], method[5][i]],
-                [method[2][i], method[10][i], method[6]][i],
+                [method[2][i], method[10][i], method[6][i]],
                 [method[3][i], method[11][i], method[7][i]],
             ]
         }
