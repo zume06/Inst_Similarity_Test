@@ -117,7 +117,7 @@ function makeFileList(method_list_path) {
             'pairs' consists of n_P_2 triplets, where
             'n' is num of methods you want to compare.
         */
-        if (i % 2 == 0) {
+        if (i < (method[0].length / 2)) {
             pairs = [
                 [method[0][i], method[4][i], method[8][i]],
                 [method[1][i], method[5][i], method[9][i]],
