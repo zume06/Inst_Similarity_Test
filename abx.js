@@ -56,16 +56,16 @@ function start_experiment() {
     method_list_path.push(wav_dir + "set" + set_num + "/piano_anchors.list");
     method_list_path.push(wav_dir + "set" + set_num + "/guitar_anchors.list");
     // the following ones are methods you want to compare
-    // positive
-    method_list_path.push(wav_dir + "set" + set_num + "/drums_positives.list");
-    method_list_path.push(wav_dir + "set" + set_num + "/bass_positives.list");
-    method_list_path.push(wav_dir + "set" + set_num + "/piano_positives.list");
-    method_list_path.push(wav_dir + "set" + set_num + "/guitar_positives.list");
-    //negative
-    method_list_path.push(wav_dir + "set" + set_num + "/drums_negatives.list");
-    method_list_path.push(wav_dir + "set" + set_num + "/bass_negatives.list");
-    method_list_path.push(wav_dir + "set" + set_num + "/piano_negatives.list");
-    method_list_path.push(wav_dir + "set" + set_num + "/guitar_negatives.list");
+    // sample1
+    method_list_path.push(wav_dir + "set" + set_num + "/drums_sample1.list");
+    method_list_path.push(wav_dir + "set" + set_num + "/bass_sample1.list");
+    method_list_path.push(wav_dir + "set" + set_num + "/piano_sample1.list");
+    method_list_path.push(wav_dir + "set" + set_num + "/guitar_sample1.list");
+    //sample2
+    method_list_path.push(wav_dir + "set" + set_num + "/drums_sample2.list");
+    method_list_path.push(wav_dir + "set" + set_num + "/bass_sample2.list");
+    method_list_path.push(wav_dir + "set" + set_num + "/piano_sample2.list");
+    method_list_path.push(wav_dir + "set" + set_num + "/guitar_sample2.list");
     /*
         end
     */
