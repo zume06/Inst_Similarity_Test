@@ -71,7 +71,7 @@ function start_experiment() {
     */
 
     file_list = makeFileList(method_list_path);
-    outfile = "inst_simi_" + name + "_set" + set_num + ".csv";
+    outfile = "inst_simi_2023_" + name + "_set" + set_num + ".csv";
     scores = (new Array(file_list.length)).fill(0);
     eval = document.getElementsByName("eval");
     init();
